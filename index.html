@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>富士急行バス | Fujikyu Bus - 富士山エリア総合バス案内</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --red: #E60027;
+  --red-dark: #B8001F;
+  --navy: #0B1D3A;
+  --sky: #5BA4D9;
+  --cream: #FAF7F2;
+  --stone: #E8E4DC;
+  --text: #1A1A1A;
+  --muted: #6B6B6B;
+  --gold: #C8A24B;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ---------- Top Bar ---------- */
+.topbar {
+  background: var(--navy);
+  color: #fff;
+  font-size: 12px;
+  padding: 8px 0;
+}
+.topbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lang-switch { display: flex; gap: 16px; }
+.lang-switch a { opacity: .7; transition: opacity .2s; }
+.lang-switch a:hover { opacity: 1; }
+.top-links { display: flex; gap: 20px; }
+.top-links a { opacity: .8; }
+.top-links a:hover { color: var(--gold); opacity: 1; }
+
+/* ---------- Header ---------- */
+.header {
+  background: #fff;
+  border-bottom: 1px solid var(--stone);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,.95);
+}
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.logo-mark {
+  width: 48px; height: 48px;
+  background: var(--red);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+.logo-text { line-height: 1.2; }
+.logo-text .jp { font-weight: 900; font-size: 18px; }
+.logo-text .en { font-size: 11px; color: var(--muted); letter-spacing: 2px; }
+
+.nav { display: flex; gap: 36px; }
+.nav a {
+  font-weight: 500;
+  font-size: 15px;
+  position: relative;
+  padding: 8px 0;
+  transition: color .2s;
+}
+.nav a:hover { color: var(--red); }
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--red);
+  transition: width .3s;
+}
+.nav a:hover::after { width: 100%; }
+
+.cta-btn {
+  background: var(--red);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform .2s, background .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.cta-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 720px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: #0B1D3A;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/hero.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  z-index: 0;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(11,29,58,.75) 0%, rgba(11,29,58,.45) 45%, rgba(11,29,58,.1) 75%, rgba(11,29,58,.05) 100%),
+    linear-gradient(180deg, rgba(11,29,58,.3) 0%, transparent 40%, rgba(11,29,58,.4) 100%);
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 32px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,.9);
+  color: var(--navy);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+}
+.hero h1 {
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 20px rgba(11,29,58,.3);
+}
+.hero h1 .accent { color: #FFE56B; }
+.hero .sub {
+  font-size: 18px;
+  color: #fff;
+  max-width: 560px;
+  margin-bottom: 48px;
+  text-shadow: 0 2px 10px rgba(11,29,58,.3);
+  font-weight: 500;
+}
+
+/* ---------- Search Card ---------- */
+.search-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(11,29,58,.15);
+  max-width: 720px;
+  position: relative;
+  z-index: 3;
+}
+.search-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+.search-tab {
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--stone);
+  color: var(--muted);
+  transition: all .2s;
+  border: none;
+  font-family: inherit;
+}
+.search-tab.active { background: var(--navy); color: #fff; }
+.search-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+.search-field label {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.search-field input, .search-field select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--stone);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  background: #fff;
+  transition: border .2s;
+}
+.search-field input:focus, .search-field select:focus {
+  outline: none;
+  border-color: var(--red);
+}
+.search-btn {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 13px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s;
+  white-space: nowrap;
+}
+.search-btn:hover { background: var(--red-dark); }
+
+/* ---------- Section ---------- */
+section { padding: 100px 32px; }
+.container { max-width: 1280px; margin: 0 auto; }
+.section-head { margin-bottom: 56px; display: flex; justify-content: space-between; align-items: end; }
+.section-head .left { max-width: 640px; }
+.section-head .en-label {
+  font-family: 'Playfair Display', serif;
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+  display: block;
+}
+.section-head h2 {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.section-head p { color: var(--muted); font-size: 16px; }
+.link-all {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap .2s;
+}
+.link-all:hover { gap: 14px; }
+
+/* ---------- Category Cards ---------- */
+.categories {
+  background: linear-gradient(180deg, var(--cream) 0%, #fff 100%);
+}
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.cat-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--stone);
+  transition: transform .3s, box-shadow .3s;
+  cursor: pointer;
+  position: relative;
+}
+.cat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(11,29,58,.12);
+}
+.cat-visual {
+  height: 180px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+.cat-1 .cat-visual { background: linear-gradient(135deg, #E60027 0%, #B8001F 100%); }
+.cat-2 .cat-visual { background: linear-gradient(135deg, #0B1D3A 0%, #1E3A6B 100%); }
+.cat-3 .cat-visual { background: linear-gradient(135deg, #C8A24B 0%, #8B6F2D 100%); }
+.cat-4 .cat-visual { background: linear-gradient(135deg, #5BA4D9 0%, #2E6A9E 100%); }
+.cat-icon {
+  width: 64px; height: 64px;
+  background: rgba(255,255,255,.15);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.2);
+}
+.cat-body { padding: 24px; }
+.cat-body h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+.cat-body p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.cat-tags { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+.cat-tag {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: var(--cream);
+  border-radius: 999px;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+/* ---------- Highway Bus Section ---------- */
+.highway {
+  background: var(--navy);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.highway::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(230,0,39,.15), transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(91,164,217,.1), transparent 50%);
+}
+.highway .section-head h2 { color: #fff; }
+.highway .section-head .en-label { color: #FFE56B; }
+.highway .section-head p { color: rgba(255,255,255,.7); }
+.highway .link-all { color: #fff; }
+
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  position: relative;
+}
+.route-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(8px);
+  transition: all .3s;
+  cursor: pointer;
+}
+.route-card:hover {
+  background: rgba(255,255,255,.12);
+  transform: translateY(-4px);
+  border-color: rgba(230,0,39,.4);
+}
+.route-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  background: var(--red);
+  border-radius: 4px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.route-cities {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.route-arrow { color: #FFE56B; }
+.route-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,.6);
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.route-meta span { display: flex; align-items: center; gap: 4px; }
+
+/* ---------- News + Tickets Split ---------- */
+.split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.news-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--stone);
+  display: grid;
+  grid-template-columns: 110px 90px 1fr;
+  gap: 20px;
+  align-items: center;
+  transition: background .2s;
+}
+.news-item:hover { background: var(--cream); padding-left: 12px; padding-right: 12px; margin-left: -12px; margin-right: -12px; border-radius: 8px; }
+.news-date { font-size: 13px; color: var(--muted); font-weight: 500; }
+.news-cat {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.news-cat.info { background: #EEF4FA; color: var(--sky); }
+.news-cat.notice { background: #FFF0E6; color: #E67A00; }
+.news-cat.important { background: #FFE6EA; color: var(--red); }
+.news-title { font-size: 14px; font-weight: 500; line-height: 1.5; }
+
+.tickets-card {
+  background: linear-gradient(135deg, #FFF6E0 0%, #FFE8B8 100%);
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.tickets-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(200,162,75,.15);
+  border-radius: 50%;
+}
+.tickets-card h3 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  position: relative;
+}
+.tickets-card .small { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
+.ticket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: rgba(255,255,255,.7);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  transition: background .2s;
+  cursor: pointer;
+}
+.ticket-item:hover { background: #fff; }
+.ticket-item .name { font-weight: 700; font-size: 14px; }
+.ticket-item .save { color: var(--red); font-weight: 900; font-size: 13px; }
+
+/* ---------- Experience Section ---------- */
+.experience {
+  background: var(--stone);
+  background: linear-gradient(180deg, #fff 0%, var(--cream) 100%);
+}
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  height: 560px;
+}
+.exp-card {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: transform .3s;
+}
+.exp-card:hover { transform: scale(1.02); }
+.exp-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.7) 100%);
+  z-index: 1;
+}
+.exp-card > * { position: relative; z-index: 2; }
+.exp-card .tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 4px 10px;
+  background: rgba(255,255,255,.2);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  align-self: flex-start;
+}
+.exp-card h3 {
+  font-size: 26px;
+  font-weight: 900;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+.exp-card p { font-size: 13px; opacity: .85; }
+
+.exp-1 {
+  grid-row: 1 / 3;
+  background: linear-gradient(135deg, #FF6B9D 0%, #E60027 50%, #7A0015 100%);
+}
+.exp-2 { background: linear-gradient(135deg, #2E8BC0 0%, #145C85 100%); }
+.exp-3 { background: linear-gradient(135deg, #F5B041 0%, #C87F00 100%); }
+.exp-4 { background: linear-gradient(135deg, #52B788 0%, #1B5E3F 100%); }
+.exp-5 { background: linear-gradient(135deg, #7D3C98 0%, #3B1554 100%); }
+
+/* ---------- Info strip ---------- */
+.info-strip {
+  background: var(--red);
+  color: #fff;
+  padding: 60px 32px;
+}
+.info-strip-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+.info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.info-icon {
+  width: 48px; height: 48px;
+  background: rgba(255,255,255,.15);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.info-item h4 { font-size: 15px; font-weight: 900; margin-bottom: 4px; }
+.info-item p { font-size: 12px; opacity: .85; }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: #0A1525;
+  color: #fff;
+  padding: 80px 32px 30px;
+}
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+}
+.footer-brand .logo-text .en { color: rgba(255,255,255,.5); }
+.footer-brand .logo-text .jp { color: #fff; }
+.footer-brand p {
+  font-size: 13px;
+  color: rgba(255,255,255,.6);
+  margin-top: 20px;
+  line-height: 1.8;
+}
+.footer-col h5 {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #FFE56B;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col a {
+  font-size: 13px;
+  color: rgba(255,255,255,.75);
+  transition: color .2s;
+}
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255,255,255,.4);
+  font-size: 12px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .nav { display: none; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .routes-grid { grid-template-columns: repeat(2, 1fr); }
+  .split { grid-template-columns: 1fr; }
+  .exp-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; }
+  .exp-1 { grid-row: auto; height: 300px; }
+  .exp-card { height: 220px; }
+  .hero h1 { font-size: 44px; }
+  .info-strip-inner { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="lang-switch">
+      <a href="#">EN</a>
+      <a href="#">繁體</a>
+      <a href="#">简体</a>
+      <a href="#">ไทย</a>
+    </div>
+    <div class="top-links">
+      <a href="#">採用情報</a>
+      <a href="#">お問い合わせ</a>
+      <a href="#">安全への取り組み</a>
+      <a href="#">Q&A</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">富</div>
+      <div class="logo-text">
+        <div class="jp">富士急行バス</div>
+        <div class="en">FUJIKYU BUS</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#">路線バス</a>
+      <a href="#">高速バス</a>
+      <a href="#">おトクな乗車券</a>
+      <a href="#">貸切バス</a>
+      <a href="#">運行情報</a>
+    </nav>
+    <a href="#" class="cta-btn">
+      予約する
+      <span>→</span>
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-inner">
+    <span class="hero-tag">TRAVEL AROUND MT.FUJI</span>
+    <h1>富士山の麓から、<br>もっと<span class="accent">自由</span>な旅へ。</h1>
+    <p class="sub">富士五湖・御殿場・富士山エリアを結ぶ、地域密着の総合バス案内。路線・高速・貸切、すべての移動をここから。</p>
+
+    <!-- Search Card -->
+    <div class="search-card">
+      <div class="search-tabs">
+        <button class="search-tab active">高速バス</button>
+        <button class="search-tab">路線バス</button>
+        <button class="search-tab">おトクな乗車券</button>
+      </div>
+      <div class="search-grid">
+        <div class="search-field">
+          <label>出発地</label>
+          <select>
+            <option>東京</option>
+            <option>新宿</option>
+            <option>横浜</option>
+            <option>大阪</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label>目的地</label>
+          <select>
+            <option>河口湖駅</option>
+            <option>富士山五合目</option>
+            <option>御殿場プレミアム・アウトレット</option>
+            <option>富士急ハイランド</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label>日付</label>
+          <input type="date" value="2026-04-18">
+        </div>
+        <button class="search-btn">検索 →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="categories">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <span class="en-label">SERVICES</span>
+        <h2>目的にあわせて選べる、<br>4つのバスサービス。</h2>
+        <p>観光、通勤、グループ旅行まで。富士急行バスはあらゆるシーンに寄り添います。</p>
+      </div>
+      <a href="#" class="link-all">全てのサービスを見る →</a>
+    </div>
+
+    <div class="cat-grid">
+      <div class="cat-card cat-1">
+        <div class="cat-visual"><div class="cat-icon">🚌</div></div>
+        <div class="cat-body">
+          <h3>路線バス</h3>
+          <p>富士五湖・御殿場エリアの地域路線。通勤・通学・観光に。</p>
+          <div class="cat-tags">
+            <span class="cat-tag">富士五湖</span>
+            <span class="cat-tag">御殿場</span>
+            <span class="cat-tag">PASMO対応</span>
+          </div>
+        </div>
+      </div>
+      <div class="cat-card cat-2">
+        <div class="cat-visual"><div class="cat-icon">🛣️</div></div>
+        <div class="cat-body">
+          <h3>高速バス</h3>
+          <p>東京・大阪・名古屋など主要都市から富士山エリアへ直行。</p>
+          <div class="cat-tags">
+            <span class="cat-tag">東京発</span>
+            <span class="cat-tag">大阪発</span>
+            <span class="cat-tag">ネット予約</span>
+          </div>
+        </div>
+      </div>
+      <div class="cat-card cat-3">
+        <div class="cat-visual"><div class="cat-icon">🎫</div></div>
+        <div class="cat-body">
+          <h3>おトクな乗車券</h3>
+          <p>セット券・フリークーポンで、もっと賢くお得に旅する。</p>
+          <div class="cat-tags">
+            <span class="cat-tag">セット券</span>
+            <span class="cat-tag">周遊券</span>
+            <span class="cat-tag">最大40%OFF</span>
+          </div>
+        </div>
+      </div>
+      <div class="cat-card cat-4">
+        <div class="cat-visual"><div class="cat-icon">🚐</div></div>
+        <div class="cat-body">
+          <h3>貸切バス</h3>
+          <p>団体旅行・イベント・送迎に。目的に合わせた車両を手配。</p>
+          <div class="cat-tags">
+            <span class="cat-tag">団体</span>
+            <span class="cat-tag">見積無料</span>
+            <span class="cat-tag">最大60名</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Highway Bus -->
+<section class="highway">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <span class="en-label">HIGHWAY BUS</span>
+        <h2>主要都市から富士山へ、<br>最短ルートでひとっ飛び。</h2>
+        <p>毎日運行の高速バス。ネット予約で座席指定も簡単に。</p>
+      </div>
+      <a href="#" class="link-all">全ての路線を見る →</a>
+    </div>
+
+    <div class="routes-grid">
+      <div class="route-card">
+        <span class="route-badge">NEW</span>
+        <div class="route-cities">
+          <span>お台場</span>
+          <span class="route-arrow">⇄</span>
+          <span>富士山</span>
+        </div>
+        <p style="font-size:13px; opacity:.7;">2025年10月運行開始の新路線</p>
+        <div class="route-meta">
+          <span>🕐 約2時間30分</span>
+          <span>💴 ¥2,800〜</span>
+        </div>
+      </div>
+      <div class="route-card">
+        <span class="route-badge" style="background:var(--gold);">人気</span>
+        <div class="route-cities">
+          <span>新宿</span>
+          <span class="route-arrow">⇄</span>
+          <span>河口湖</span>
+        </div>
+        <p style="font-size:13px; opacity:.7;">バスタ新宿から毎日運行</p>
+        <div class="route-meta">
+          <span>🕐 約1時間45分</span>
+          <span>💴 ¥2,200〜</span>
+        </div>
+      </div>
+      <div class="route-card">
+        <div class="route-cities">
+          <span>渋谷</span>
+          <span class="route-arrow">⇄</span>
+          <span>沼津</span>
+        </div>
+        <p style="font-size:13px; opacity:.7;">5/1運賃改定のお知らせ</p>
+        <div class="route-meta">
+          <span>🕐 約2時間10分</span>
+          <span>💴 ¥2,500〜</span>
+        </div>
+      </div>
+      <div class="route-card">
+        <div class="route-cities">
+          <span>三島</span>
+          <span class="route-arrow">⇄</span>
+          <span>河口湖</span>
+        </div>
+        <p style="font-size:13px; opacity:.7;">特急ライナー運行中</p>
+        <div class="route-meta">
+          <span>🕐 約1時間30分</span>
+          <span>💴 ¥2,000〜</span>
+        </div>
+      </div>
+      <div class="route-card">
+        <div class="route-cities">
+          <span>大阪</span>
+          <span class="route-arrow">⇄</span>
+          <span>富士山</span>
+        </div>
+        <p style="font-size:13px; opacity:.7;">夜行バスで朝一到着</p>
+        <div class="route-meta">
+          <span>🕐 約9時間</span>
+          <span>💴 ¥9,800〜</span>
+        </div>
+      </div>
+      <div class="route-card">
+        <div class="route-cities">
+          <span>河口湖</span>
+          <span class="route-arrow">⇄</span>
+          <span>御殿場P.O.</span>
+        </div>
+        <p style="font-size:13px; opacity:.7;">Gライナーでアウトレットへ</p>
+        <div class="route-meta">
+          <span>🕐 約50分</span>
+          <span>💴 ¥1,570〜</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News + Tickets -->
+<section>
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-head" style="margin-bottom:32px;">
+          <div class="left">
+            <span class="en-label">NEWS</span>
+            <h2>お知らせ</h2>
+          </div>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <span class="news-date">2026.04.10</span>
+            <span class="news-cat important">重要</span>
+            <span class="news-title">【5/11〜30】中央道集中工事のご案内</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.04.05</span>
+            <span class="news-cat notice">改定</span>
+            <span class="news-title">【沼津〜渋谷・新宿線】5月1日より運賃改定について</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.04.03</span>
+            <span class="news-cat notice">改定</span>
+            <span class="news-title">【三島・河口湖ライナー】運賃改定のお知らせ</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.03.13</span>
+            <span class="news-cat info">お知らせ</span>
+            <span class="news-title">「お台場〜富士山線」ダイヤ改正・予約再開について</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.03.09</span>
+            <span class="news-cat info">ダイヤ</span>
+            <span class="news-title">4/16〜【高速バス・藤沢線】ダイヤ改正（減便）について</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2025.10.28</span>
+            <span class="news-cat info">お知らせ</span>
+            <span class="news-title">「羽田空港線」平日運行再開について</span>
+          </div>
+        </div>
+        <a href="#" class="link-all" style="margin-top:24px; display:inline-flex;">お知らせ一覧 →</a>
+      </div>
+
+      <div class="tickets-card">
+        <h3>おトクな<br>乗車券特集</h3>
+        <p class="small">人気のセット券・周遊券をピックアップ</p>
+        <div class="ticket-item">
+          <span class="name">富士山・富士五湖パスポート</span>
+          <span class="save">最大35%OFF</span>
+        </div>
+        <div class="ticket-item">
+          <span class="name">富士急ハイランドセット券</span>
+          <span class="save">最大30%OFF</span>
+        </div>
+        <div class="ticket-item">
+          <span class="name">富士登山バス周遊券</span>
+          <span class="save">最大25%OFF</span>
+        </div>
+        <div class="ticket-item">
+          <span class="name">水陸両用KABA＋路線バスセット</span>
+          <span class="save">特別価格</span>
+        </div>
+        <div class="ticket-item">
+          <span class="name">愛鷹ゆけむりきっぷ</span>
+          <span class="save">新登場</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section class="experience">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <span class="en-label">EXPERIENCE</span>
+        <h2>バスで巡る、<br>富士山エリアの絶景。</h2>
+        <p>富士山五合目、富士急ハイランド、河口湖、御殿場アウトレット…バス一本で行ける名所を厳選。</p>
+      </div>
+      <a href="#" class="link-all">観光ガイドを見る →</a>
+    </div>
+
+    <div class="exp-grid">
+      <div class="exp-card exp-1">
+        <span class="tag">MT.FUJI</span>
+        <h3>富士山五合目へ、<br>バスで登る。</h3>
+        <p>富士スバルライン・御殿場口・須走口・富士宮口の四方から。</p>
+      </div>
+      <div class="exp-card exp-2">
+        <span class="tag">LAKES</span>
+        <h3>富士五湖周遊</h3>
+        <p>河口湖・山中湖ほか</p>
+      </div>
+      <div class="exp-card exp-3">
+        <span class="tag">OUTLET</span>
+        <h3>御殿場P.O.</h3>
+        <p>ショッピング直行便</p>
+      </div>
+      <div class="exp-card exp-4">
+        <span class="tag">KABA</span>
+        <h3>水陸両用バス</h3>
+        <p>山中湖ダイブ体験</p>
+      </div>
+      <div class="exp-card exp-5">
+        <span class="tag">HIGHLAND</span>
+        <h3>富士急ハイランド</h3>
+        <p>アクセス＋入園券</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Info strip -->
+<div class="info-strip">
+  <div class="info-strip-inner">
+    <div class="info-item">
+      <div class="info-icon">🛡️</div>
+      <div>
+        <h4>安全への取り組み</h4>
+        <p>安心・安全な運行のために</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">💼</div>
+      <div>
+        <h4>採用情報</h4>
+        <p>一緒に働く仲間を募集中</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">📊</div>
+      <div>
+        <h4>オープンデータ</h4>
+        <p>GTFS形式データ公開中</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">💬</div>
+      <div>
+        <h4>お問い合わせ</h4>
+        <p>AIチャット24時間対応</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark">富</div>
+          <div class="logo-text">
+            <div class="jp">富士急行バス</div>
+            <div class="en">FUJIKYU BUS</div>
+          </div>
+        </div>
+        <p>富士山エリアの移動を支える総合バスサービス。路線から貸切まで、あらゆる旅を応援します。</p>
+      </div>
+      <div class="footer-col">
+        <h5>路線バス</h5>
+        <ul>
+          <li><a href="#">富士五湖エリア</a></li>
+          <li><a href="#">御殿場エリア</a></li>
+          <li><a href="#">富士山五合目</a></li>
+          <li><a href="#">乗車券・定期券</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>高速バス</h5>
+        <ul>
+          <li><a href="#">東京・神奈川</a></li>
+          <li><a href="#">大阪・京都</a></li>
+          <li><a href="#">名古屋</a></li>
+          <li><a href="#">ネット予約</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>サービス</h5>
+        <ul>
+          <li><a href="#">貸切バス</a></li>
+          <li><a href="#">おトクな乗車券</a></li>
+          <li><a href="#">KABAバス</a></li>
+          <li><a href="#">PASMO</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>企業情報</h5>
+        <ul>
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">採用情報</a></li>
+          <li><a href="#">プライバシー</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FUJIKYUKO.CO.,LTD All Rights Reserved.</span>
+      <span>Redesigned with Claude</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
