@@ -332,27 +332,25 @@ section { padding: 100px 32px; }
   z-index: 0;
   transition: background .3s;
 }
-.cat-1 .cat-visual { background-image: url('assets/cat-route.jpg'); }
-.cat-1 .cat-visual::before { background: linear-gradient(135deg, rgba(230,0,39,.55) 0%, rgba(184,0,31,.7) 100%); }
-.cat-2 .cat-visual { background-image: url('assets/cat-highway.jpg'); }
-.cat-2 .cat-visual::before { background: linear-gradient(135deg, rgba(11,29,58,.55) 0%, rgba(30,58,107,.75) 100%); }
-.cat-3 .cat-visual { background-image: url('assets/cat-ticket.jpg'); }
-.cat-3 .cat-visual::before { background: linear-gradient(135deg, rgba(200,162,75,.45) 0%, rgba(139,111,45,.7) 100%); }
-.cat-4 .cat-visual { background-image: url('assets/cat-charter.jpg'); }
-.cat-4 .cat-visual::before { background: linear-gradient(135deg, rgba(91,164,217,.5) 0%, rgba(46,106,158,.75) 100%); }
-.cat-card:hover .cat-visual::before { opacity: .8; }
-.cat-icon {
-  width: 64px; height: 64px;
-  background: rgba(255,255,255,.22);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 28px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,.35);
-  position: relative;
+.cat-1 .cat-visual { background-image: url('assets/hero.jpg'); background-position: center 35%; }
+.cat-1 .cat-visual::before { background: linear-gradient(135deg, rgba(230,0,39,.35) 0%, rgba(184,0,31,.55) 100%); }
+.cat-2 .cat-visual { background-image: url('assets/cat-fuji-2.jpg'); }
+.cat-2 .cat-visual::before { background: linear-gradient(135deg, rgba(11,29,58,.4) 0%, rgba(30,58,107,.6) 100%); }
+.cat-3 .cat-visual { background-image: url('assets/cat-fuji-1.jpg'); }
+.cat-3 .cat-visual::before { background: linear-gradient(135deg, rgba(200,162,75,.35) 0%, rgba(139,111,45,.6) 100%); }
+.cat-4 .cat-visual { background-image: url('assets/cat-fuji-3.jpg'); }
+.cat-4 .cat-visual::before { background: linear-gradient(135deg, rgba(91,164,217,.35) 0%, rgba(46,106,158,.6) 100%); }
+.cat-card:hover .cat-visual::before { opacity: .7; }
+.cat-label {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
   z-index: 1;
-  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.4);
 }
 .cat-body { padding: 24px; }
 .cat-body h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
@@ -875,7 +873,7 @@ section { padding: 100px 32px; }
 
     <div class="cat-grid">
       <div class="cat-card cat-1">
-        <div class="cat-visual"><div class="cat-icon">🚌</div></div>
+        <div class="cat-visual"><span class="cat-label">01 / LOCAL</span></div>
         <div class="cat-body">
           <h3>路線バス</h3>
           <p>富士五湖・御殿場エリアの地域路線。通勤・通学・観光に。</p>
@@ -887,7 +885,7 @@ section { padding: 100px 32px; }
         </div>
       </div>
       <div class="cat-card cat-2">
-        <div class="cat-visual"><div class="cat-icon">🛣️</div></div>
+        <div class="cat-visual"><span class="cat-label">02 / HIGHWAY</span></div>
         <div class="cat-body">
           <h3>高速バス</h3>
           <p>東京・大阪・名古屋など主要都市から富士山エリアへ直行。</p>
@@ -899,7 +897,7 @@ section { padding: 100px 32px; }
         </div>
       </div>
       <div class="cat-card cat-3">
-        <div class="cat-visual"><div class="cat-icon">🎫</div></div>
+        <div class="cat-visual"><span class="cat-label">03 / TICKETS</span></div>
         <div class="cat-body">
           <h3>おトクな乗車券</h3>
           <p>セット券・フリークーポンで、もっと賢くお得に旅する。</p>
@@ -911,7 +909,7 @@ section { padding: 100px 32px; }
         </div>
       </div>
       <div class="cat-card cat-4">
-        <div class="cat-visual"><div class="cat-icon">🚐</div></div>
+        <div class="cat-visual"><span class="cat-label">04 / CHARTER</span></div>
         <div class="cat-body">
           <h3>貸切バス</h3>
           <p>団体旅行・イベント・送迎に。目的に合わせた車両を手配。</p>
