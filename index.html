@@ -648,6 +648,111 @@ section { padding: 100px 32px; }
   .info-strip-inner { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
+
+@media (max-width: 640px) {
+  section { padding: 64px 20px; }
+  .topbar { padding: 6px 0; font-size: 11px; }
+  .topbar-inner { padding: 0 16px; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .lang-switch { gap: 10px; }
+  .top-links { gap: 12px; }
+  .top-links a { font-size: 11px; }
+
+  .header-inner { padding: 14px 16px; }
+  .logo-mark { width: 38px; height: 38px; font-size: 16px; }
+  .logo-text .jp { font-size: 15px; }
+  .logo-text .en { font-size: 9px; letter-spacing: 1px; }
+  .cta-btn { padding: 9px 16px; font-size: 12px; }
+  .cta-btn span { display: none; }
+
+  /* Hero */
+  .hero { min-height: 560px; }
+  .hero-inner { padding: 48px 20px; }
+  .hero-bg { background-position: center 40%; }
+  .hero-bg::after {
+    background:
+      linear-gradient(180deg, rgba(11,29,58,.55) 0%, rgba(11,29,58,.65) 70%, rgba(11,29,58,.85) 100%);
+  }
+  .hero-tag { font-size: 10px; padding: 6px 14px; letter-spacing: 1.5px; margin-bottom: 16px; }
+  .hero h1 { font-size: 32px; line-height: 1.2; margin-bottom: 14px; }
+  .hero .sub { font-size: 14px; margin-bottom: 28px; }
+
+  /* Search card */
+  .search-card { padding: 18px; border-radius: 16px; }
+  .search-tabs { gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+  .search-tab { padding: 8px 14px; font-size: 11px; }
+  .search-grid { grid-template-columns: 1fr; gap: 10px; }
+  .search-btn { width: 100%; padding: 14px; }
+  .search-field input, .search-field select { padding: 11px 12px; font-size: 14px; }
+
+  /* Section heads */
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-head h2 { font-size: 26px; }
+  .section-head p { font-size: 14px; }
+  .section-head .en-label { font-size: 11px; letter-spacing: 2px; }
+  .link-all { font-size: 13px; }
+
+  /* Categories */
+  .cat-grid { grid-template-columns: 1fr; gap: 14px; }
+  .cat-visual { height: 140px; }
+  .cat-icon { width: 54px; height: 54px; font-size: 22px; }
+  .cat-body { padding: 20px; }
+  .cat-body h3 { font-size: 18px; }
+
+  /* Highway routes */
+  .routes-grid { grid-template-columns: 1fr; gap: 12px; }
+  .route-card { padding: 20px; }
+  .route-cities { font-size: 18px; gap: 10px; }
+  .route-meta { gap: 14px; font-size: 11px; flex-wrap: wrap; }
+  .route-meta span { white-space: nowrap; }
+
+  /* News */
+  .news-item {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 6px 10px;
+    padding: 16px 0;
+  }
+  .news-date { grid-row: 1; font-size: 12px; }
+  .news-cat { grid-row: 1; font-size: 10px; padding: 3px 8px; }
+  .news-title { grid-column: 1 / -1; grid-row: 2; font-size: 13px; line-height: 1.6; }
+  .news-item:hover { padding-left: 8px; padding-right: 8px; margin-left: -8px; margin-right: -8px; }
+
+  /* Tickets card */
+  .tickets-card { padding: 28px 22px; border-radius: 18px; }
+  .tickets-card h3 { font-size: 22px; }
+  .ticket-item { padding: 13px 14px; }
+  .ticket-item .name { font-size: 13px; }
+  .ticket-item .save { font-size: 11px; }
+
+  /* Experience */
+  .exp-grid { grid-template-columns: 1fr; gap: 12px; }
+  .exp-1 { height: 260px; }
+  .exp-card { height: 200px; padding: 24px; }
+  .exp-card h3 { font-size: 22px; }
+  .exp-card p { font-size: 12px; }
+
+  /* Info strip */
+  .info-strip { padding: 44px 20px; }
+  .info-strip-inner { grid-template-columns: 1fr; gap: 22px; }
+  .info-icon { width: 40px; height: 40px; font-size: 17px; }
+  .info-item h4 { font-size: 14px; }
+  .info-item p { font-size: 11px; }
+
+  /* Footer */
+  .footer { padding: 56px 20px 24px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 40px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand p { font-size: 12px; }
+  .footer-col h5 { margin-bottom: 14px; font-size: 11px; }
+  .footer-col ul { gap: 9px; }
+  .footer-col a { font-size: 12px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; font-size: 11px; }
+}
 </style>
 </head>
 <body>
