@@ -316,26 +316,43 @@ section { padding: 100px 32px; }
   box-shadow: 0 20px 40px rgba(11,29,58,.12);
 }
 .cat-visual {
-  height: 180px;
+  height: 200px;
   position: relative;
   display: grid;
   place-items: center;
   color: #fff;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
-.cat-1 .cat-visual { background: linear-gradient(135deg, #E60027 0%, #B8001F 100%); }
-.cat-2 .cat-visual { background: linear-gradient(135deg, #0B1D3A 0%, #1E3A6B 100%); }
-.cat-3 .cat-visual { background: linear-gradient(135deg, #C8A24B 0%, #8B6F2D 100%); }
-.cat-4 .cat-visual { background: linear-gradient(135deg, #5BA4D9 0%, #2E6A9E 100%); }
+.cat-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: background .3s;
+}
+.cat-1 .cat-visual { background-image: url('assets/cat-route.jpg'); }
+.cat-1 .cat-visual::before { background: linear-gradient(135deg, rgba(230,0,39,.55) 0%, rgba(184,0,31,.7) 100%); }
+.cat-2 .cat-visual { background-image: url('assets/cat-highway.jpg'); }
+.cat-2 .cat-visual::before { background: linear-gradient(135deg, rgba(11,29,58,.55) 0%, rgba(30,58,107,.75) 100%); }
+.cat-3 .cat-visual { background-image: url('assets/cat-ticket.jpg'); }
+.cat-3 .cat-visual::before { background: linear-gradient(135deg, rgba(200,162,75,.45) 0%, rgba(139,111,45,.7) 100%); }
+.cat-4 .cat-visual { background-image: url('assets/cat-charter.jpg'); }
+.cat-4 .cat-visual::before { background: linear-gradient(135deg, rgba(91,164,217,.5) 0%, rgba(46,106,158,.75) 100%); }
+.cat-card:hover .cat-visual::before { opacity: .8; }
 .cat-icon {
   width: 64px; height: 64px;
-  background: rgba(255,255,255,.15);
+  background: rgba(255,255,255,.22);
   border-radius: 50%;
   display: grid;
   place-items: center;
   font-size: 28px;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.35);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
 .cat-body { padding: 24px; }
 .cat-body h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
